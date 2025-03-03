@@ -6,5 +6,11 @@ public class Character {
 
     public Character() {
         Stats.put("INT", 2);
+        System.out.println(Stats);
     }
+    public void IncInt(Map<String,Integer> Stats){
+        Stats.put("INT",+1);
+    }
+
+
 }
