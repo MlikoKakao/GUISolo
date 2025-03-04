@@ -8,8 +8,12 @@ public class Character {
         Stats.put("INT", 2);
         System.out.println(Stats);
     }
-    public void IncInt(Map<String,Integer> Stats){
-        Stats.put("INT",+1);
+    public void IncInt(){
+        Stats.put("INT",Stats.get("INT")+1);
+    }
+    @Override
+    public String toString(){
+        return "Stats: "+Stats;
     }
 
 
