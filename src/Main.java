@@ -8,7 +8,7 @@ public class Main {
     public static void main(String [] args){
         //Character reference
         Character character = new Character();
-        character.IncInt();
+        Character.IncInt();
 
         //JFrame start
         JFrame frame = new JFrame("Solo");
@@ -36,17 +36,20 @@ public class Main {
         button.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     JOptionPane.showMessageDialog(frame, "Button clicked");
+                    Character.Stats.put("INT",Character.Stats.get("INT")+1);
                 }
         });
 
         //Another panel with text
         JPanel textPanel = new JPanel();
-        JLabel label2 = new JLabel("StatsStatsStats");
+        JLabel label2 = new JLabel(character.toString());
         textPanel.add(label2);
+        textPanel.add(new JButton("Aaa"));
 
 
         //Label
-        JLabel label = new JLabel(String.valueOf(character));
+        JLabel label = new JLabel(character.toString());
+        textPanel.add(label);
 
 
         //Set layout
