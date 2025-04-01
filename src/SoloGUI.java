@@ -32,7 +32,7 @@ public class SoloGUI extends JFrame {
         //INT label
         JLabel intLbl = new JLabel("INT");
         intLbl.setFont(new Font("Dialog", Font.PLAIN,40));
-        intLbl.setBounds(50,100,80,50);
+        intLbl.setBounds(50,100,80,40);
         add(intLbl);
         intLbl.setBorder(BorderFactory.createLineBorder(Color.black));
     }
