@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 public class SoloGUI extends JFrame {
     private Character character;
+    int points = 5;
     public SoloGUI(){
         super("Solo Leveling");
         character = new Character(0,0,0,0,0);
@@ -56,9 +57,11 @@ public class SoloGUI extends JFrame {
         incIntBt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                character.setIntelligence(character.getIntelligence()+1);
-                intStatLbl.setText(String.valueOf(character.getIntelligence()));
-
+                if(points > 0) {
+                    character.setIntelligence(character.getIntelligence() + 1);
+                    intStatLbl.setText(String.valueOf(character.getIntelligence()));
+                    points--;
+                }
             }
         });
         add(incIntBt);
@@ -82,9 +85,11 @@ public class SoloGUI extends JFrame {
         incStrBt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                character.setStrength(character.getStrength()+1);
-                strStatLbl.setText(String.valueOf(character.getStrength()));
-
+                if(points > 0) {
+                    character.setStrength(character.getStrength() + 1);
+                    strStatLbl.setText(String.valueOf(character.getStrength()));
+                    points--;
+                }
             }
         });
         add(incStrBt);
@@ -108,9 +113,11 @@ public class SoloGUI extends JFrame {
         incSenBt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                character.setSense(character.getSense()+1);
-                senStatLbl.setText(String.valueOf(character.getSense()));
-
+                if(points > 0) {
+                    character.setSense(character.getSense() + 1);
+                    senStatLbl.setText(String.valueOf(character.getSense()));
+                    points--;
+                }
             }
         });
         add(incSenBt);
@@ -134,9 +141,11 @@ public class SoloGUI extends JFrame {
         incAPBt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                character.setAbility(character.getAbility()+1);
-                apStatLbl.setText(String.valueOf(character.getAbility()));
-
+                if(points > 0) {
+                    character.setAbility(character.getAbility() + 1);
+                    apStatLbl.setText(String.valueOf(character.getAbility()));
+                    points--;
+                }
             }
         });
         add(incAPBt);
@@ -160,11 +169,19 @@ public class SoloGUI extends JFrame {
         incDurBt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                character.setDurability(character.getDurability()+1);
-                durStatLbl.setText(String.valueOf(character.getDurability()));
-
+                if(points >0) {
+                    character.setDurability(character.getDurability() + 1);
+                    durStatLbl.setText(String.valueOf(character.getDurability()));
+                    points--;
+                }
             }
         });
         add(incDurBt);
+
+        JLabel availablePointsLbl = new JLabel("Available points: "+String.valueOf(points));
+        availablePointsLbl.setFont(new Font("Dialog", Font.PLAIN,25));
+        availablePointsLbl.setBounds(150,600,250,40);
+        availablePointsLbl.setBorder(BorderFactory.createLineBorder(Color.black));
+        add(availablePointsLbl);
     }
 }
