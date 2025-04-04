@@ -101,6 +101,20 @@ public class SoloGUI extends JFrame {
         senStatLbl.setBorder(BorderFactory.createLineBorder(Color.black));
         add(senStatLbl);
 
+        JButton incSenBt = new JButton("+");
+        incSenBt.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        incSenBt.setFont(new Font("Dialog", Font.PLAIN,27));
+        incSenBt.setBounds(525,300,50,40);
+        incSenBt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                character.setSense(character.getSense()+1);
+                senStatLbl.setText(String.valueOf(character.getSense()));
+
+            }
+        });
+        add(incSenBt);
+
         JLabel apLbl = new JLabel("APP");
         apLbl.setFont(new Font("Dialog", Font.PLAIN,40));
         apLbl.setBounds(50,400,90,40);
@@ -112,6 +126,20 @@ public class SoloGUI extends JFrame {
         apStatLbl.setBounds(450,400,70,40);
         apStatLbl.setBorder(BorderFactory.createLineBorder(Color.black));
         add(apStatLbl);
+
+        JButton incAPBt = new JButton("+");
+        incAPBt.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        incAPBt.setFont(new Font("Dialog", Font.PLAIN,27));
+        incAPBt.setBounds(525,400,50,40);
+        incAPBt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                character.setAbility(character.getAbility()+1);
+                apStatLbl.setText(String.valueOf(character.getAbility()));
+
+            }
+        });
+        add(incAPBt);
 
         JLabel durLbl = new JLabel("DUR");
         durLbl.setFont(new Font("Dialog", Font.PLAIN,40));
@@ -125,5 +153,18 @@ public class SoloGUI extends JFrame {
         durStatLbl.setBorder(BorderFactory.createLineBorder(Color.black));
         add(durStatLbl);
 
+        JButton incDurBt = new JButton("+");
+        incDurBt.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        incDurBt.setFont(new Font("Dialog", Font.PLAIN,27));
+        incDurBt.setBounds(525,500,50,40);
+        incDurBt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                character.setDurability(character.getDurability()+1);
+                durStatLbl.setText(String.valueOf(character.getDurability()));
+
+            }
+        });
+        add(incDurBt);
     }
 }
