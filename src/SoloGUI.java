@@ -35,6 +35,12 @@ public class SoloGUI extends JFrame {
         searchBT.setBounds(425,15,100,45);
         add(searchBT);
 
+        JLabel availablePointsLbl = new JLabel("Available points: "+String.valueOf(points));
+        availablePointsLbl.setFont(new Font("Dialog", Font.PLAIN,25));
+        availablePointsLbl.setBounds(150,600,250,40);
+        availablePointsLbl.setBorder(BorderFactory.createLineBorder(Color.black));
+        add(availablePointsLbl);
+
         //INT label
         JLabel intLbl = new JLabel("INT");
         intLbl.setFont(new Font("Dialog", Font.PLAIN,40));
@@ -61,6 +67,7 @@ public class SoloGUI extends JFrame {
                     character.setIntelligence(character.getIntelligence() + 1);
                     intStatLbl.setText(String.valueOf(character.getIntelligence()));
                     points--;
+                    availablePointsLbl.setText("Available points: "+String.valueOf(points));
                 }
             }
         });
@@ -89,6 +96,7 @@ public class SoloGUI extends JFrame {
                     character.setStrength(character.getStrength() + 1);
                     strStatLbl.setText(String.valueOf(character.getStrength()));
                     points--;
+                    availablePointsLbl.setText("Available points: "+String.valueOf(points));
                 }
             }
         });
@@ -117,6 +125,7 @@ public class SoloGUI extends JFrame {
                     character.setSense(character.getSense() + 1);
                     senStatLbl.setText(String.valueOf(character.getSense()));
                     points--;
+                    availablePointsLbl.setText("Available points: "+String.valueOf(points));
                 }
             }
         });
@@ -145,6 +154,7 @@ public class SoloGUI extends JFrame {
                     character.setAbility(character.getAbility() + 1);
                     apStatLbl.setText(String.valueOf(character.getAbility()));
                     points--;
+                    availablePointsLbl.setText("Available points: "+String.valueOf(points));
                 }
             }
         });
@@ -173,15 +183,24 @@ public class SoloGUI extends JFrame {
                     character.setDurability(character.getDurability() + 1);
                     durStatLbl.setText(String.valueOf(character.getDurability()));
                     points--;
+                    availablePointsLbl.setText("Available points: "+String.valueOf(points));
                 }
             }
         });
         add(incDurBt);
 
-        JLabel availablePointsLbl = new JLabel("Available points: "+String.valueOf(points));
-        availablePointsLbl.setFont(new Font("Dialog", Font.PLAIN,25));
-        availablePointsLbl.setBounds(150,600,250,40);
-        availablePointsLbl.setBorder(BorderFactory.createLineBorder(Color.black));
-        add(availablePointsLbl);
+        JButton addPointsBt = new JButton("A");
+        addPointsBt.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        addPointsBt.setFont(new Font("Dialog", Font.PLAIN,27));
+        addPointsBt.setBounds(425,600,60,40);
+        addPointsBt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                points++;
+                availablePointsLbl.setText("Available points: "+String.valueOf(points));
+            }
+        });
+        add(addPointsBt);
+
     }
 }
