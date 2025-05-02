@@ -202,5 +202,32 @@ public class SoloGUI extends JFrame {
         });
         add(addPointsBt);
 
+
+        JButton resetBt = new JButton("R");
+        resetBt.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        resetBt.setFont(new Font("Dialog", Font.PLAIN,27));
+        resetBt.setBounds(500,600,60,40);
+        resetBt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                points=5;
+                availablePointsLbl.setText("Available points: "+String.valueOf(points));
+                character.setDurability(0);
+                durStatLbl.setText(String.valueOf(character.getDurability()));
+
+                character.setIntelligence(0);
+                intStatLbl.setText(String.valueOf(character.getIntelligence()));
+
+                character.setStrength(0);
+                strStatLbl.setText(String.valueOf(character.getStrength()));
+
+                character.setSense(0);
+                senStatLbl.setText(String.valueOf(character.getSense()));
+
+                character.setAbility(0);
+                apStatLbl.setText(String.valueOf(character.getAbility()));
+            }
+        });
+        add(resetBt);
     }
 }
